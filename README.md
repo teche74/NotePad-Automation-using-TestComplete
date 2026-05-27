@@ -2,7 +2,7 @@
 
 ## Repository
 Project: `NotePad-Automation-using-TestComplete`  
-Author: `teche74`  
+Author: `Ujjwal Bisht`  
 GitHub: https://github.com/teche74/NotePad-Automation-using-TestComplete
 
 ---

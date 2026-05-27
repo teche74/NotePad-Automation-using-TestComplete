@@ -1,0 +1,352 @@
+﻿//USEUNIT BasePage
+//USEUNIT KeyboardUtils
+//USEUNIT WindowUtils
+//USEUNIT BaseAssertions
+//USEUNIT Logger
+//USEUNIT Environment
+
+
+function enterText(text){
+  logStep("Entering text into Editor.");
+  
+  typeText(Aliases.Notepad.wndNotepad.NotepadTextBox.RichEditD2DPT, text);
+  
+}
+
+function appendText(text){
+  logStep("Adding new text into editor last line.");
+  
+  typeText(Aliases.Notepad.wndNotepad.NotepadTextBox.RichEditD2DPT, text)
+}
+
+function clearEditor(){
+  logStep("Clearing Text from Editor.");
+  
+  clearText(Aliases.Notepad.wndNotepad.NotepadTextBox.RichEditD2DPT);
+}
+
+
+function getEditorText(){
+  logStep("Fetching text present in Editor.");
+  
+  return getElementText(Aliases.Notepad.wndNotepad.NotepadTextBox.RichEditD2DPT);
+}
+
+function selectAllText(){
+  logStep("Selecting all the text from Editor.");
+  
+  clickElement(Aliases.Notepad.wndNotepad.NotepadTextBox.RichEditD2DPT);
+  
+  pressCtrlA();
+}
+
+
+function clickFileMenu(){
+  logStep("Click File Option from Menu");
+  
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.MenuBar.File);
+}
+
+function createNewFile(){
+  logStep("Creating new File");
+  
+  pressCtrlN();
+}
+
+function saveFile(){
+  logStep("Saving file");
+  
+  pressCtrlS();
+}
+
+function saveFileAs(fileName){
+  logStep("Using Save file as with name : " + fileName);
+  
+  pressCtrlplusS();
+  
+  verifyObjectExists(Aliases.Notepad.Save_as);
+  
+  typeText(Aliases.Notepad.Save_as.DUIViewWndClassName.Explorer_Pane.FloatNotifySink.File_name_.File_name_, fileName);
+  
+  clickElement(Aliases.Notepad.Save_as.Save);
+}
+
+
+function openFile(fileName){
+  logStep("Opening a pre-existing file named as : " + fileName);
+  
+  logInfo("Clicking open Button");
+    
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.MenuBar.File.File);
+  Runner.Pause();
+  
+  clickElement(Aliases.Notepad.PopupHost.InputSiteWindowClass.Popup.MenuFlyout.Open);
+  
+  typeText(Aliases.Notepad.Open.File_name_.File_name_.File_name_, fileName);
+  
+  clickElement(Aliases.Notepad.Open.Open);
+}
+
+
+function copyText(){
+  logStep("Copying Text");
+  
+  pressCtrlC();
+}
+
+function cutText(){
+  logStep("Cutting Text");
+  
+  pressCtrlX();
+}
+
+function pasteText(){
+  logStep("Pasting Text");
+  
+  pressCtrlV();
+}
+
+function undoAction(){
+  logStep("Performing Undo Action");
+  
+  pressCtrlZ();
+}
+
+function redoAction(){
+  logStep("Performing Redo Action");
+  
+  pressCtrlY();
+}
+
+
+function deleteSelectedText(){
+  logStep("Deleting Selected Text");  
+}
+
+
+function toggleWordWrap(){
+  logStep("Toggle Word wrap");
+  
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.MenuBar.View);
+  waitForVisible(Aliases.Notepad.PopupHost2.InputSiteWindowClass.Popup.MenuFlyout.Word_wrap);
+  clickElement(Aliases.Notepad.PopupHost2.InputSiteWindowClass.Popup.MenuFlyout.Word_wrap); 
+}
+
+
+function selectFont(fontFamily = "Candara" , Style = "Regular" , Size = "11"){
+  logStep("Changing font family : " + fontFamily + " with style : " + Style + " and size : " + Size);
+  clickElement(Aliases.Notepad.PopupHost.InputSiteWindowClass.Popup.Item.Font);
+  clickElement(Aliases.Notepad.wndNotepad.Microsoft_UI_Content_DesktopChildSiteBridge.InputSiteWindowClass.RootScrollViewer.Font.Font.Family_2);
+  pressDelete();
+  typeText(Aliases.Notepad.wndNotepad.Microsoft_UI_Content_DesktopChildSiteBridge.InputSiteWindowClass.RootScrollViewer.Font.Font.Family_2, fontFamily);
+  typeText(Aliases.Notepad.wndNotepad.Microsoft_UI_Content_DesktopChildSiteBridge.InputSiteWindowClass.RootScrollViewer.Font.Font.Style_2 , Style);
+  typeText(Aliases.Notepad.wndNotepad.Microsoft_UI_Content_DesktopChildSiteBridge.InputSiteWindowClass.RootScrollViewer.Font.Font.Size_2, Size);
+  pressBackspace();
+}
+
+
+function selectTitleStyle(){
+  logStep("Changing Style to Title");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Headings);
+  waitForVisible(Aliases.Notepad.PopupHost3);
+  clickElement(Aliases.Notepad.PopupHost3.InputSiteWindowClass.Popup.DropFlyout.ScrollViewer.ListView.Title.Title);
+}
+
+function selectSubtitleStyle(){
+  logStep("Changing Style to Subtitle");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Headings);
+  waitForVisible(Aliases.Notepad.PopupHost3);
+  clickElement(Aliases.Notepad.PopupHost3.InputSiteWindowClass.Popup.DropFlyout.ScrollViewer.ListView.Subtitle.Subtitle);
+}
+
+function selectHeadingStyle(){
+  logStep("Changing Style to Headings");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Headings);
+  waitForVisible(Aliases.Notepad.PopupHost3);
+  clickElement(Aliases.Notepad.PopupHost3.InputSiteWindowClass.Popup.Item.Item.Item.Heading.Heading);
+}
+
+function selectSubHeadingStyle(){
+  logStep("Changing Style to Subheadings");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Headings);
+  waitForVisible(Aliases.Notepad.PopupHost3);
+  clickElement(Aliases.Notepad.PopupHost3.InputSiteWindowClass.Popup.DropFlyout.ScrollViewer.ListView.Subheading.Subheading);
+}
+
+function selectSectionStyle(){
+  logStep("Changing Style to Section");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Headings);
+  waitForVisible(Aliases.Notepad.PopupHost3);
+  clickElement(Aliases.Notepad.PopupHost3.InputSiteWindowClass.Popup.DropFlyout.ScrollViewer.ListView.Section.Section);
+}
+
+function selectSubsectionStyle(){
+  logStep("Changing Style to Subsection");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Headings);
+  waitForVisible(Aliases.Notepad.PopupHost3);
+  clickElement(Aliases.Notepad.PopupHost3.InputSiteWindowClass.Popup.Item2.Item.Item.Subsection.Subsection);
+}
+
+function selectBodyStyle(){
+  logStep("Changing Style to Body");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Headings);
+  waitForVisible(Aliases.Notepad.PopupHost3);
+  clickElement(Aliases.Notepad.PopupHost3.InputSiteWindowClass.Popup.DropFlyout.ScrollViewer.ListView.Body.Body);
+}
+
+function toggleBulletList(){
+  logStep("Toggling Bullet List Style");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Lists);
+  clickElement(Aliases.Notepad.PopupHost4.InputSiteWindowClass.Popup.DropFlyout.ScrollViewer.ListView.Bulleted_list); 
+}
+
+function toggleNumberedListStyle(){
+  logStep("Toggling Numbered List Style");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Lists);
+  clickElement(Aliases.Notepad.PopupHost4.InputSiteWindowClass.Popup.Item.Item.Item.Numbered_list);
+}
+
+function toggleBold(){
+  logStep("Toggling Bold Text");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Bold_Ctrl_B_);
+}
+
+function toggleItalics(){
+  logStep("Toggling Italics");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Italic_Ctrl_I_);
+}
+
+function toggleStrikeThrough(){
+  logStep("Toggling StrikeThorugh");
+  clickElement(Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Strikethrough_Ctrl_Shift_X_);
+}
+
+function maximizeNotepad(){
+  logStep("Maximizing Notepad");
+
+  maximizeWindow(Aliases.Notepad.wndNotepad);
+}
+
+function minimizeNotepad(){
+  logStep("Minimizing Notepad");
+  minimizeWindow(Aliases.Notepad.wndNotepad);
+}
+
+function closeNotepad(){
+  logStep("Closing Notepad");
+  
+  closeWindow(Aliases.Notepad.wndNotepad);
+}
+
+function verifyApplicationOpen(){
+  logStep("Verifying Notepad is open");
+  return verifyObjectExists(
+      Aliases.Notepad.wndNotepad
+  );
+}
+
+function verifyApplicationClosed(){
+
+    logStep("Verifying Notepad is closed");
+
+    if(!Aliases.Notepad.wndNotepad.Exists){
+
+        logPass("Notepad application closed successfully");
+        return true;
+
+    }
+
+    logError("Notepad application is still open");
+    return false;
+}
+
+
+function checkFileExist(fileName){
+  logStep("Checking whether file exists : " + FILE_SAVE_PATH + fileName + '.txt');
+  
+  if(aqFileSystem.Exists(FILE_SAVE_PATH + fileName + '.txt')){
+    Log.Checkpoint("File exists : " + FILE_SAVE_PATH + fileName + '.txt');
+    return true;
+  }
+  else{
+    Log.Error("File does not exist : " + FILE_SAVE_PATH + fileName + '.txt');
+    return false;
+  }
+}
+
+function findFileTab(fileName){
+
+  let tabList = Aliases.Notepad.wndNotepad.MicrosoftUIContentDesktopChildSiteBridge.InputSiteWindowClass.Tabs.TabListView;
+
+  let tab = tabList.FindChild("Name","*" + fileName + "*",20);
+
+  if(tab.Exists){
+    Log.Checkpoint("Found tab : " + fileName);
+    return tab;
+  }
+
+  Log.Error("Tab not found : " + fileName);
+  return null;
+}
+
+
+function replaceAllKeyword(wordToReplace , wordWithReplace){
+  let text = getEditorText();
+  let updatedText = aqString.Replace(text,wordToReplace , wordWithReplace);
+  enterText(updatedText);
+}
+
+
+function replaceFirstOccurence(wordToReplace, wordWithReplace){
+  let editorText = getEditorText();
+
+  let firstIndex = aqString.Find(
+      editorText,
+      wordToReplace,
+      0,
+      false
+  );
+
+  if(firstIndex == -1){
+
+    Log.Error("Word not found : " + wordToReplace);
+    return;
+  }
+
+  let beforeWord = aqString.SubString(
+      editorText,
+      0,
+      firstIndex
+  );
+
+  let afterWord = aqString.SubString(
+      editorText,
+      firstIndex + aqString.GetLength(wordToReplace),
+      aqString.GetLength(editorText)
+  );
+
+  let updatedText = beforeWord + wordWithReplace + afterWord;
+
+  clearEditor();
+
+  enterText(updatedText);
+}
+
+
+function openWindowExists(){
+  return waitForExistence(Aliases.Notepad.Open);
+}
+
+function getFilesView(){
+  clickElement(Aliases.Notepad.Open.DUIViewWndClassName.Explorer_Pane.Folder_Layout_Pane.Shell_Folder_View);
+}
+
+
+function getSelectedFileNameOpenWindow(){
+  return Aliases.Notepad.Open.File_name_.File_name_.File_name_.wText;
+}
+
+
+function pressCancelOpenDailog(){
+  clickElement(Aliases.Notepad.Open.Cancel);
+}

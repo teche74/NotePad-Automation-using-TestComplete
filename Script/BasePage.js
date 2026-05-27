@@ -1,0 +1,88 @@
+﻿//USEUNIT Logger
+//USEUNIT WaitHelper
+//USEUNIT KeyboardUtils
+
+function clickElement(element){
+  try{
+    logStep("Clicking element");
+    
+    waitForObject(element);
+    waitForEnabled(element);
+    
+    element.Click();
+    
+    logPass("Element clicked successfully");
+  }
+  catch(error){
+    logError("Unable to click element : " + Error);
+  }
+}
+
+function doubleClickElement(element){
+  try{
+    logStep("Double clicking element");
+    
+    waitForObject(element);
+    waitForEnabled(element);
+    
+    element.DblClick();
+    
+    logPass("Element double clicked successfully");
+  }
+  catch(error){
+    logError("Unable to double click element : " + Error);
+  }
+}
+
+function typeText(element, text){
+  try{
+    logStep("typing text : "  + text);
+    
+    waitForObject(element);
+    waitForEnabled(element);
+    
+    element.Keys(text);
+    
+    logPass("Text entered successfully");
+  }
+  catch(error){
+    logError("Unable to enter text : " + Error);
+  }
+}
+
+function clearText(element){
+  try{
+    logStep("Clearing text");
+    
+    waitForObject(element);
+    waitForEnabled(element);
+    
+    element.Click();
+    
+    Sys.Keys("^a");
+    Sys.Keys("[Del]");
+    
+    logPass("Text cleared successfully");
+  }
+  catch(error){
+    logError("Unable to clear text : " + Error);
+  }
+}
+
+function getElementText(element){
+  try{
+    logStep("Fetching text from element");
+    
+    waitForObject(element);
+    
+    let text = element.wText;
+    
+    logPass("Fetched element text successfully");
+    
+    return text;
+  }
+  catch(error){
+    logError("Unable to fetch text : " + Error);
+    return null;
+  }
+}

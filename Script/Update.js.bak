@@ -1,0 +1,17 @@
+﻿//USEUNIT BaseTest
+//USEUNIT NotepadPage
+//USEUNIT BaseAssertions
+
+When("user updates all occurences of {arg} to {arg}", function (wordToReplace, replacementWord){
+  let editorText = getEditorText();
+  let updatedText = aqString.Replace(editorText,wordToReplace,replacementWord, true);
+  clearEditor();
+  enterText(updatedText);
+});
+
+Then("editor text should not contain {arg}", function (targetWord){
+  let editorText = getEditorText();
+  
+  verifyTrue(aqString.Find(editorText,targetWord , 0 , true) != -1 , "Not able to replace all the occurences of the word" , "Successfully replaced all the occurences")
+});
+

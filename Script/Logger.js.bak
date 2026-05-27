@@ -1,0 +1,17 @@
+﻿function logInfo(message){
+  Log.message(message);
+}
+
+function logError(message){
+  Log.Error(message);
+}
+
+function logWarning(message){
+  Log.Warning(message);
+}
+
+function logStep(message){
+  Log.Ste
+}
+
+function logPass

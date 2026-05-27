@@ -1,0 +1,11 @@
+﻿//USEUNIT Logger
+
+function captureFullScreen(name){
+    try{
+        Log.Picture(Sys.Desktop.Picture(),name);
+        logPass("Fullscreen screenshot captured : " + name);
+    }
+    catch(error){
+        logError("Unable to capture fullscreen screenshot : " + error);
+    }
+}

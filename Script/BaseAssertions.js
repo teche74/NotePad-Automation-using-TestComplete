@@ -1,0 +1,120 @@
+﻿//USEUNIT Logger
+//USEUNIT WaitHelper
+
+function verifyEqual(actual, expected){
+
+  try{
+
+      logStep("Verifying equality");
+
+      if(actual === expected){
+
+          logPass(
+              "Verification passed. " +
+              "Actual : " + actual +
+              " | Expected : " + expected
+          );
+
+          return true;
+      }
+
+      logError(
+          "Verification failed. " +
+          "Actual : " + actual +
+          " | Expected : " + expected
+      );
+
+      return false;
+
+  }
+  catch(error){
+
+      logError("Exception in verifyEqual() : " + error);
+      return false;
+
+  }
+
+}
+
+function verifyTrue(condition , successMessage , failureMessage){
+  try{
+
+      logStep("Verifying condition is TRUE");
+
+      if(condition){
+
+          logPass(successMessage);
+          return true;
+
+      }
+
+      logError(failureMessage);
+      return false;
+
+  }
+  catch(error){
+
+      logError("Exception in verifyTrue() : " + error);
+      return false;
+
+  }
+
+}
+
+function verifyContains(actual, expected){
+
+  try{
+
+      logStep("Verifying expected text exists");
+
+      if(actual.indexOf(expected) !== -1){
+
+          logPass(
+              "Expected text found : " + expected
+          );
+
+          return true;
+
+      }
+
+      logError(
+          "Expected text not found : " + expected
+      );
+
+      return false;
+
+  }
+  catch(error){
+
+      logError("Exception in verifyContains() : " + error);
+      return false;
+
+  }
+
+}
+
+function verifyObjectExists(object){
+
+  try{
+
+      logStep("Verifying object existence");
+
+      if(waitForExistence(object)){
+
+          logPass("Object exists successfully");
+          return true;
+
+      }
+
+      logError("Object does not exist");
+      return false;
+
+  }
+  catch(error){
+
+      logError("Exception in verifyObjectExists() : " + error);
+      return false;
+
+  }
+
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<folder name="Base">
+			<child name="BasePage" key="{4A7A366C-1DBC-4DE5-A341-A8873DC93D91}" path="BasePage.js" />
+			<child name="BaseAssertions" key="{324A733A-87F5-4363-8D01-DA6257F03289}" path="BaseAssertions.js" />
+			<child name="BaseTest" key="{B61DB709-F617-482B-9DDC-C0CA24B6B93F}" path="BaseTest.js" />
+		</folder>
+		<folder name="Pages">
+			<child name="NotepadPage" key="{BD5255F4-CAC8-4931-8A68-AE163FE6BEDC}" path="NotepadPage.js" />
+		</folder>
+		<folder name="TestCases" />
+		<folder name="Utils">
+			<child name="Logger" key="{A126AA02-3132-45B8-B734-3E67B1F661C9}" path="Logger.js" />
+			<child name="WaitHelper" key="{27996774-CDA9-4C39-81AD-74C3C0789EAA}" path="WaitHelper.js" />
+			<child name="KeyboardUtils" key="{31554BCB-D381-444A-8356-60450259FB86}" path="KeyboardUtils.js" />
+			<child name="ScreenshotUtils" key="{AAAA375D-0646-4466-8CEB-B9D5B0B9BE40}" path="ScreenshotUtils.js" />
+			<child name="WindowUtils" key="{04880121-9978-48C9-BD48-1E5C8A74818D}" path="WindowUtils.js" />
+		</folder>
+		<folder name="Configs">
+			<child name="Constants" key="{1EA6C667-C857-4124-9F7B-CAD97944ACC7}" path="Constants.js" />
+			<child name="Environment" key="{ACD004AD-E71A-43D4-A8C8-E45D49555D34}" path="Environment.js" />
+		</folder>
+		<folder name="Main" />
+		<folder name="StepDefinitions">
+			<child name="Create" key="{A01A85C7-ABCC-4246-9F2D-21A71B460DD7}" path="Create.js" />
+			<child name="Read" key="{7B198A46-6DB3-407D-B7FB-ED6245924C12}" path="Read.js" />
+			<child name="Update" key="{12CB5AA1-A50D-4D47-8517-CF3A23120A79}" path="Update.js" />
+			<child name="Delete" key="{22D37383-8C28-4214-AC2E-4DF73C36B149}" path="Delete.js" />
+		</folder>
+		<child name="problemsfaced" key="{0937730F-4B40-4265-B3A9-2FEA261D4412}" path="problemsfaced.js" />
+	</children>
+</Root>
